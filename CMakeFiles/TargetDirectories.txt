@@ -1,0 +1,3 @@
+/home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles/aircraft_flight_mechanics.dir
+/home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles/edit_cache.dir
+/home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles/rebuild_cache.dir
