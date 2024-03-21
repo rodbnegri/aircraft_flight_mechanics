@@ -8,5 +8,5 @@ project(aircraft_flight_mechanics)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Add executable
-add_executable(aircraft_flight_mechanics main.cpp)
+add_executable(aircraft_flight_mechanics ../main.cpp)
 

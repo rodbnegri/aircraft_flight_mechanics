@@ -57,10 +57,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rodolfo/Code/aircraft_flight_mechanics
+CMAKE_SOURCE_DIR = /home/rodolfo/Code/aircraft_flight_mechanics/build
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rodolfo/Code/aircraft_flight_mechanics
+CMAKE_BINARY_DIR = /home/rodolfo/Code/aircraft_flight_mechanics/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles /home/rodolfo/Code/aircraft_flight_mechanics//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/build/CMakeFiles /home/rodolfo/Code/aircraft_flight_mechanics/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -129,29 +129,29 @@ aircraft_flight_mechanics/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/build
 .PHONY : aircraft_flight_mechanics/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+home/rodolfo/Code/aircraft_flight_mechanics/main.o: home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o
+.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.o
 
 # target to build an object file
-main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/main.cpp.o
-.PHONY : main.cpp.o
+home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o
+.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+home/rodolfo/Code/aircraft_flight_mechanics/main.i: home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i
+.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.i
 
 # target to preprocess a source file
-main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/main.cpp.i
-.PHONY : main.cpp.i
+home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i
+.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+home/rodolfo/Code/aircraft_flight_mechanics/main.s: home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s
+.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/main.cpp.s
-.PHONY : main.cpp.s
+home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s
+.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s
 
 # Help Target
 help:
@@ -162,9 +162,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... aircraft_flight_mechanics"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
+	@echo "... home/rodolfo/Code/aircraft_flight_mechanics/main.o"
+	@echo "... home/rodolfo/Code/aircraft_flight_mechanics/main.i"
+	@echo "... home/rodolfo/Code/aircraft_flight_mechanics/main.s"
 .PHONY : help
 
 

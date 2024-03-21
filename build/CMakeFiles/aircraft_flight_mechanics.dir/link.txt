@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o -o aircraft_flight_mechanics 

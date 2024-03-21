@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/aircraft_flight_mechanics.dir/main.cpp.o"
-  "CMakeFiles/aircraft_flight_mechanics.dir/main.cpp.o.d"
+  "CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o"
+  "CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o.d"
   "aircraft_flight_mechanics"
   "aircraft_flight_mechanics.pdb"
 )

@@ -1,4 +1,4 @@
-# Install script for directory: /home/rodolfo/Code/aircraft_flight_mechanics
+# Install script for directory: /home/rodolfo/Code/aircraft_flight_mechanics/build
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/rodolfo/Code/aircraft_flight_mechanics/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/rodolfo/Code/aircraft_flight_mechanics/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

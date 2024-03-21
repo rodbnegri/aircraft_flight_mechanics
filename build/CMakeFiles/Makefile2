@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rodolfo/Code/aircraft_flight_mechanics
+CMAKE_SOURCE_DIR = /home/rodolfo/Code/aircraft_flight_mechanics/build
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/rodolfo/Code/aircraft_flight_mechanics
+CMAKE_BINARY_DIR = /home/rodolfo/Code/aircraft_flight_mechanics/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -81,14 +81,14 @@ clean: CMakeFiles/aircraft_flight_mechanics.dir/clean
 CMakeFiles/aircraft_flight_mechanics.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles --progress-num=1,2 "Built target aircraft_flight_mechanics"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/rodolfo/Code/aircraft_flight_mechanics/build/CMakeFiles --progress-num=1,2 "Built target aircraft_flight_mechanics"
 .PHONY : CMakeFiles/aircraft_flight_mechanics.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/aircraft_flight_mechanics.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/aircraft_flight_mechanics.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/rodolfo/Code/aircraft_flight_mechanics/build/CMakeFiles 0
 .PHONY : CMakeFiles/aircraft_flight_mechanics.dir/rule
 
 # Convenience name for target.
