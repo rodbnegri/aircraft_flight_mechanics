@@ -2,11 +2,11 @@
 #include <iostream>
 
 int main() {
-  double pitch{90.0 * M_PI / 180.0}, bank_angle{0.0 * M_PI / 180.0},
+  double bank_angle{0.0 * M_PI / 180.0}, pitch{90.0 * M_PI / 180.0},
       yaw{0.0 * M_PI / 180.0};
   std::array<double, 3> earth_coord{1.0, 0.0, 0.0}, body_coord{0.0, 0.0, 0.0};
 
-  body_coord = earth_to_body(earth_coord, pitch, bank_angle, yaw);
+  body_coord = earth_to_body(earth_coord, bank_angle, pitch, yaw);
 
   std::cout << "The body-fixed coords. are: ";
   for (const auto &coord : body_coord) {

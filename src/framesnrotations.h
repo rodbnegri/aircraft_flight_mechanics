@@ -6,8 +6,8 @@
 // Function to perform rotation from the body-fixed frame (aircraft) to the
 // Earth
 inline std::array<double, 3>
-body_to_earth(const std::array<double, 3> &body_coords, double pitch,
-              double bank_angle, double yaw) {
+body_to_earth(const std::array<double, 3> &body_coords, double bank_angle,
+              double pitch, double yaw) {
   std::array<double, 3> earth_coords = {0.0, 0.0, 0.0};
 
   // Compute elements of the rotation matrix
@@ -20,15 +20,16 @@ body_to_earth(const std::array<double, 3> &body_coords, double pitch,
 
   // Compute rotation matrix (earth to body)
   std::array<std::array<double, 3>, 3> rotation_matrix = {
-      {{c_pitch * c_bank_angle,
-        c_yaw * c_bank_angle * s_pitch - s_yaw * s_bank_angle,
-        s_yaw * c_bank_angle * s_pitch + c_yaw * s_bank_angle},
-       {s_bank_angle, c_yaw * c_bank_angle, -s_yaw * c_bank_angle},
-       {-s_pitch * c_bank_angle,
-        c_yaw * s_bank_angle * s_pitch + s_yaw * c_bank_angle,
-        s_yaw * s_bank_angle * s_pitch - c_yaw * c_bank_angle}}};
+      {{c_pitch * c_yaw, c_pitch * s_yaw, -s_pitch},
+       {c_yaw * s_bank_angle * s_pitch - s_yaw * c_bank_angle,
+        s_bank_angle * s_pitch * s_yaw + c_bank_angle * c_yaw,
+        s_bank_angle * c_pitch},
+       {c_bank_angle * s_pitch * c_yaw + s_bank_angle * s_yaw,
+        c_bank_angle * s_pitch * s_yaw - s_bank_angle * c_yaw,
+        c_bank_angle * c_pitch}}};
 
-  std::array<std::array<double, 3>, 3> transpose;
+  std::array<std::array<double, 3>, 3> transpose{
+      {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}}};
   for (int i = 0; i < 3; ++i) {
     for (int j = 0; j < 3; ++j) {
       transpose[i][j] = rotation_matrix[j][i];
@@ -39,7 +40,7 @@ body_to_earth(const std::array<double, 3> &body_coords, double pitch,
   // coordinates
   for (int i = 0; i < 3; ++i) {
     for (int j = 0; j < 3; ++j) {
-      earth_coords[i] += transpose[i][j] * earth_coords[j];
+      earth_coords[i] += transpose[i][j] * body_coords[j];
     }
   }
 
@@ -49,8 +50,8 @@ body_to_earth(const std::array<double, 3> &body_coords, double pitch,
 // Function to perform rotation from the Earth frame to the body-fixed frame
 // (aircraft)
 inline std::array<double, 3>
-earth_to_body(const std::array<double, 3> &earth_coords, double pitch,
-              double bank_angle, double yaw) {
+earth_to_body(const std::array<double, 3> &earth_coords, double bank_angle,
+              double pitch, double yaw) {
   std::array<double, 3> body_coords = {0.0, 0.0, 0.0};
 
   // Compute elements of the rotation matrix
@@ -61,15 +62,19 @@ earth_to_body(const std::array<double, 3> &earth_coords, double pitch,
   double c_yaw = cos(yaw);
   double s_yaw = sin(yaw);
 
+  // phi    bank_angle
+  // psi    yaw
+  // theta  pitch
+
   // Compute rotation matrix
   std::array<std::array<double, 3>, 3> rotation_matrix = {
-      {{c_pitch * c_bank_angle,
-        c_yaw * c_bank_angle * s_pitch - s_yaw * s_bank_angle,
-        s_yaw * c_bank_angle * s_pitch + c_yaw * s_bank_angle},
-       {s_bank_angle, c_yaw * c_bank_angle, -s_yaw * c_bank_angle},
-       {-s_pitch * c_bank_angle,
-        c_yaw * s_bank_angle * s_pitch + s_yaw * c_bank_angle,
-        s_yaw * s_bank_angle * s_pitch - c_yaw * c_bank_angle}}};
+      {{c_pitch * c_yaw, c_pitch * s_yaw, -s_pitch},
+       {c_yaw * s_bank_angle * s_pitch - s_yaw * c_bank_angle,
+        s_bank_angle * s_pitch * s_yaw + c_bank_angle * c_yaw,
+        s_bank_angle * c_pitch},
+       {c_bank_angle * s_pitch * c_yaw + s_bank_angle * s_yaw,
+        c_bank_angle * s_pitch * s_yaw - s_bank_angle * c_yaw,
+        c_bank_angle * c_pitch}}};
 
   // Apply rotation matrix to convert Earth-fixed coordinates to body-fixed
   // coordinates
