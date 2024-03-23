@@ -42,34 +42,34 @@ aircrafts_EOM(double earth_pos_x, double earth_pos_y, double earth_pos_z,
       (lateral_ang_vel * sin(pitch) + downward_ang_vel * cos(roll));
   // forward acceleration
   state_vector[6] = downward_ang_vel * lateral_vel -
-                    lateral_ang_vel * downward_vel + force_vector[1] / mass;
+                    lateral_ang_vel * downward_vel + force_vector[0] / mass;
   // lateral acceleration
   state_vector[7] = forward_ang_vel * downward_vel -
-                    downward_ang_vel * forward_vel + force_vector[2] / mass;
+                    downward_ang_vel * forward_vel + force_vector[1] / mass;
   // downward acceleration
   state_vector[8] = lateral_ang_vel * forward_vel -
-                    forward_ang_vel * lateral_vel + force_vector[3] / mass;
+                    forward_ang_vel * lateral_vel + force_vector[2] / mass;
   //  elements of the inertia tensor
-  double Ixz{-inertia_tensor[1][3]};
+  double Ixz{-inertia_tensor[0][2]};
   // double Izx{-inertia_tensor[3][1]};
-  double Ixx{inertia_tensor[1][1]};
-  double Iyy{inertia_tensor[2][2]};
-  double Izz{inertia_tensor[3][3]};
+  double Ixx{inertia_tensor[0][0]};
+  double Iyy{inertia_tensor[1][1]};
+  double Izz{inertia_tensor[2][2]};
   // forward angular velocity
   state_vector[9] =
-      (Ixz * moment_vector[3] + Izz * moment_vector[1] +
+      (Ixz * moment_vector[2] + Izz * moment_vector[0] +
        Ixz * (Ixx - Iyy + Izz) * forward_ang_vel * lateral_ang_vel -
        (pow(Ixz, 2) - Iyy * Izz + pow(Izz, 2)) * lateral_ang_vel *
            downward_ang_vel) /
       (Ixx * Izz - pow(Ixz, 2));
   // lateral angular velocity
   state_vector[10] =
-      (moment_vector[2] - (Ixx - Izz) * downward_ang_vel * forward_ang_vel -
+      (moment_vector[1] - (Ixx - Izz) * downward_ang_vel * forward_ang_vel -
        Ixz * (pow(forward_ang_vel, 2) - pow(downward_ang_vel, 2))) /
       Iyy;
   // downward angular velocity
   state_vector[11] =
-      (Ixx * moment_vector[3] + Ixz * moment_vector[1] -
+      (Ixx * moment_vector[2] + Ixz * moment_vector[0] -
        Ixz * (Ixx - Iyy + Izz) * downward_ang_vel * lateral_ang_vel +
        (pow(Ixz, 2) - Iyy * Ixx + pow(Ixx, 2)) * lateral_ang_vel *
            forward_ang_vel) /
