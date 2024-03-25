@@ -14,8 +14,7 @@ aircrafts_EOM(double earth_pos_x, double earth_pos_y, double earth_pos_z,
               std::array<double, 3> moment_vector,
               std::array<std::array<double, 3>, 3> inertia_tensor) {
 
-  std::array<double, 12> state_vector{0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-                                      0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+  std::array<double, 12> state_vector{0.0};
 
   // inertial x velocity
   state_vector[0] =

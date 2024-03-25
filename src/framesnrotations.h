@@ -8,7 +8,7 @@
 inline std::array<double, 3>
 body_to_earth(const std::array<double, 3> body_coords, double roll,
               double pitch, double yaw) {
-  std::array<double, 3> earth_coords = {0.0, 0.0, 0.0};
+  std::array<double, 3> earth_coords = {0.0};
 
   // Compute elements of the rotation matrix
   double c_pitch = cos(pitch);
@@ -26,8 +26,7 @@ body_to_earth(const std::array<double, 3> body_coords, double roll,
        {c_roll * s_pitch * c_yaw + s_roll * s_yaw,
         c_roll * s_pitch * s_yaw - s_roll * c_yaw, c_roll * c_pitch}}};
 
-  std::array<std::array<double, 3>, 3> transpose{
-      {{0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}, {0.0, 0.0, 0.0}}};
+  std::array<std::array<double, 3>, 3> transpose{{{0.0}}};
   for (int i = 0; i < 3; ++i) {
     for (int j = 0; j < 3; ++j) {
       transpose[i][j] = rotation_matrix[j][i];
@@ -53,7 +52,7 @@ body_to_earth(const std::array<double, 3> body_coords, double roll,
 inline std::array<double, 3>
 earth_to_body(const std::array<double, 3> earth_coords, double roll,
               double pitch, double yaw) {
-  std::array<double, 3> body_coords = {0.0, 0.0, 0.0};
+  std::array<double, 3> body_coords = {0.0};
 
   // Compute elements of the rotation matrix
   double c_pitch = cos(pitch);
@@ -106,19 +105,6 @@ inline std::array<double, 3> body_angular_vel(double roll, double pitch,
       {forward_angle, lateral_angle, downward_angle}};
 
   return body_angular_vel_vector;
-}
-
-// Calculate the aircraft's state vector
-inline std::array<double, 12>
-aircraft_state(double roll, double pitch, double yaw, double forward_vel,
-               double lateral_vel, double downward_vel,
-               std::array<double, 3> force_vector,
-               std::array<double, 3> moment_vector,
-               std::array<std::array<double, 3>, 3> inertia_tensor) {
-
-  std::array<double, 12> state_vector{0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-                                      0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-  return state_vector;
 }
 
 #endif

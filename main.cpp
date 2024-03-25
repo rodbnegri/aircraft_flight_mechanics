@@ -14,5 +14,14 @@ int main() {
   }
   std::cout << "\n";
 
+  std::array<double, 3> earth_coord_new =
+      body_to_earth(body_coord, bank_angle, pitch, yaw);
+
+  std::cout << "Returning to earth coords.: ";
+  for (const auto &coord : earth_coord_new) {
+    std::cout << coord << " ";
+  }
+  std::cout << "\n";
+
   return 0;
 }
