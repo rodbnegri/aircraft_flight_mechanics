@@ -1,4 +1,4 @@
-#ifndef FRAMESNROTATIONS_H
+#ifndef FRAMESNROTATIONS_HPP
 
 #include <array>
 #include <cmath>
@@ -27,6 +27,7 @@ body_to_earth(const std::array<double, 3> body_coords, double roll,
         c_roll * s_pitch * s_yaw - s_roll * c_yaw, c_roll * c_pitch}}};
 
   std::array<std::array<double, 3>, 3> transpose{{{0.0}}};
+
   for (int i = 0; i < 3; ++i) {
     for (int j = 0; j < 3; ++j) {
       transpose[i][j] = rotation_matrix[j][i];

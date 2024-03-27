@@ -1,4 +1,4 @@
-#ifndef AIRCRAFTMOTION_H
+#ifndef AIRCRAFTMOTION_HPP
 
 // #include "framesnrotations.h"
 #include <array>

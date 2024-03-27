@@ -1,27 +1,31 @@
-#include "src/framesnrotations.h"
+#include "src/atmosphere.hpp"
+// #include "src/framesnrotations.hpp"
 #include <iostream>
 
 int main() {
-  double bank_angle{0.0 * M_PI / 180.0}, pitch{90.0 * M_PI / 180.0},
-      yaw{0.0 * M_PI / 180.0};
-  std::array<double, 3> earth_coord{1.0, 0.0, 0.0}, body_coord{0.0, 0.0, 0.0};
 
-  body_coord = earth_to_body(earth_coord, bank_angle, pitch, yaw);
+  double height_m;
+  double TAS_mps;
 
-  std::cout << "The body-fixed coords. are: ";
-  for (const auto &coord : body_coord) {
-    std::cout << coord << " ";
-  }
-  std::cout << "\n";
+  std::cout << "Enter height in meters: ";
+  std::cin >> height_m;
 
-  std::array<double, 3> earth_coord_new =
-      body_to_earth(body_coord, bank_angle, pitch, yaw);
+  std::cout << "Enter TAS (True Airspeed) in meters per second: ";
+  std::cin >> TAS_mps;
 
-  std::cout << "Returning to earth coords.: ";
-  for (const auto &coord : earth_coord_new) {
-    std::cout << coord << " ";
-  }
-  std::cout << "\n";
+  double calibrated_airspeed_mps = calibrated_airspeed(TAS_mps, height_m);
+  double temperature = ISA_temperature(height_m);
+  double sound_speed = ISA_soundspeed(temperature);
+  double pressure = ISA_airpressure(temperature, height_m);
+  double density = ISA_density(temperature, pressure);
+
+  std::cout << "Speed of sound [m/s]: " << sound_speed << "\n";
+  std::cout << "Temperature [K]: " << temperature << "\n";
+  std::cout << "Pressure [Pa]: " << pressure << "\n";
+  std::cout << "Density [kg/m³]: " << density << "\n";
+  std::cout << "Mach number : " << TAS_mps / sound_speed << "\n";
+  std::cout << "Calibrated air speed [m/s]: " << calibrated_airspeed_mps
+            << "\n";
 
   return 0;
 }
