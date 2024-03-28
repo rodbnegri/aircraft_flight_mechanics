@@ -216,7 +216,7 @@ aircraft_flight_mechanics_BINARY_DIR:STATIC=/home/rodolfo/Code/aircraft_flight_m
 aircraft_flight_mechanics_IS_TOP_LEVEL:STATIC=ON
 
 //Value Computed by CMake
-aircraft_flight_mechanics_SOURCE_DIR:STATIC=/home/rodolfo/Code/aircraft_flight_mechanics/build
+aircraft_flight_mechanics_SOURCE_DIR:STATIC=/home/rodolfo/Code/aircraft_flight_mechanics
 
 
 ########################
@@ -303,7 +303,7 @@ CMAKE_GENERATOR_PLATFORM:INTERNAL=
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=/home/rodolfo/Code/aircraft_flight_mechanics/build
+CMAKE_HOME_DIRECTORY:INTERNAL=/home/rodolfo/Code/aircraft_flight_mechanics
 //Install .so files without execute permission.
 CMAKE_INSTALL_SO_NO_EXE:INTERNAL=1
 //ADVANCED property for variable: CMAKE_LINKER

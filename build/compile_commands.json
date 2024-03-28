@@ -1,7 +1,0 @@
-[
-{
-  "directory": "/home/rodolfo/Code/aircraft_flight_mechanics/build",
-  "command": "/usr/bin/c++    -o CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o -c /home/rodolfo/Code/aircraft_flight_mechanics/main.cpp",
-  "file": "/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp"
-}
-]

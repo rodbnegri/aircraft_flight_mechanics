@@ -1,11 +1,12 @@
-#include "src/atmosphere.hpp"
+#include "../include/atmosphere.hpp"
 // #include "src/framesnrotations.hpp"
+// #include <gsl/gslodeiv2.h>
 #include <iostream>
 
-int main() {
-
-  double height_m;
-  double TAS_mps;
+int main(void) {
+  // TEST:of atmosphere.hpp
+  double height_m{0};
+  double TAS_mps{0};
 
   std::cout << "Enter height in meters: ";
   std::cin >> height_m;

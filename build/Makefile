@@ -57,13 +57,23 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/rodolfo/Code/aircraft_flight_mechanics/build
+CMAKE_SOURCE_DIR = /home/rodolfo/Code/aircraft_flight_mechanics
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/rodolfo/Code/aircraft_flight_mechanics/build
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -117,41 +127,78 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named aircraft_flight_mechanics
+# Target rules for targets named main
 
 # Build rule for target.
-aircraft_flight_mechanics: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 aircraft_flight_mechanics
-.PHONY : aircraft_flight_mechanics
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-aircraft_flight_mechanics/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/build
-.PHONY : aircraft_flight_mechanics/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
-home/rodolfo/Code/aircraft_flight_mechanics/main.o: home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o
-.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.o
+#=============================================================================
+# Target rules for targets named test_atmosphere
+
+# Build rule for target.
+test_atmosphere: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 test_atmosphere
+.PHONY : test_atmosphere
+
+# fast build rule for target.
+test_atmosphere/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_atmosphere.dir/build.make CMakeFiles/test_atmosphere.dir/build
+.PHONY : test_atmosphere/fast
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
 
 # target to build an object file
-home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o
-.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.o
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
 
-home/rodolfo/Code/aircraft_flight_mechanics/main.i: home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i
-.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.i
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
 
 # target to preprocess a source file
-home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i
-.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.i
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
 
-home/rodolfo/Code/aircraft_flight_mechanics/main.s: home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s
-.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.s
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
 
 # target to generate assembly for a file
-home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/aircraft_flight_mechanics.dir/build.make CMakeFiles/aircraft_flight_mechanics.dir/home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s
-.PHONY : home/rodolfo/Code/aircraft_flight_mechanics/main.cpp.s
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
+
+tests/test_atmosphere.o: tests/test_atmosphere.cpp.o
+.PHONY : tests/test_atmosphere.o
+
+# target to build an object file
+tests/test_atmosphere.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_atmosphere.dir/build.make CMakeFiles/test_atmosphere.dir/tests/test_atmosphere.cpp.o
+.PHONY : tests/test_atmosphere.cpp.o
+
+tests/test_atmosphere.i: tests/test_atmosphere.cpp.i
+.PHONY : tests/test_atmosphere.i
+
+# target to preprocess a source file
+tests/test_atmosphere.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_atmosphere.dir/build.make CMakeFiles/test_atmosphere.dir/tests/test_atmosphere.cpp.i
+.PHONY : tests/test_atmosphere.cpp.i
+
+tests/test_atmosphere.s: tests/test_atmosphere.cpp.s
+.PHONY : tests/test_atmosphere.s
+
+# target to generate assembly for a file
+tests/test_atmosphere.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/test_atmosphere.dir/build.make CMakeFiles/test_atmosphere.dir/tests/test_atmosphere.cpp.s
+.PHONY : tests/test_atmosphere.cpp.s
 
 # Help Target
 help:
@@ -161,10 +208,15 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... aircraft_flight_mechanics"
-	@echo "... home/rodolfo/Code/aircraft_flight_mechanics/main.o"
-	@echo "... home/rodolfo/Code/aircraft_flight_mechanics/main.i"
-	@echo "... home/rodolfo/Code/aircraft_flight_mechanics/main.s"
+	@echo "... test"
+	@echo "... main"
+	@echo "... test_atmosphere"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
+	@echo "... tests/test_atmosphere.o"
+	@echo "... tests/test_atmosphere.i"
+	@echo "... tests/test_atmosphere.s"
 .PHONY : help
 
 

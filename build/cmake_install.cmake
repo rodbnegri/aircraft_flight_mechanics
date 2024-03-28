@@ -1,4 +1,4 @@
-# Install script for directory: /home/rodolfo/Code/aircraft_flight_mechanics/build
+# Install script for directory: /home/rodolfo/Code/aircraft_flight_mechanics
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
