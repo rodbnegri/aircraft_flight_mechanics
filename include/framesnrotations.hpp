@@ -1,5 +1,6 @@
 /*
 GNU General Public License with Academic Attribution
+Copyright (C) 2024 Rodolfo Batista Negri
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
