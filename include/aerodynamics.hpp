@@ -22,5 +22,5 @@ or publication, followed by the repository's URL.
 
 Example, suppose Software X was used for data analysis:
 "The data analysis was performed using Software X, developed by
-Rodolfo B. Negri~\footnote{[URL]}."
+Dr. Rodolfo B. Negri~\footnote{[URL]}."
 */
